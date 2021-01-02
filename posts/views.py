@@ -54,6 +54,7 @@ class PostCategoria(PostIndex):
 
     def get_queryset(self):
         qs = super().get_queryset()
+        qs = qs.select_related('categoria_post')
         categoria = self.kwargs.get('categoria', None)
         if not categoria:
             return qs
