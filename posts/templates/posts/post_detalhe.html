@@ -45,18 +45,17 @@
             <h2 class="my-3">Deixe um comentário</h2>
             <form method="POST" action="">
                 {% csrf_token %}
-                <table class="table">
-                    {{ form }}
-                    <tr>
-                        <td colspan="2">
-                            {% include 'parciais/_messages.html' %}
-                            <input id="envia_comentario" type="submit" class="btn btn-primary" value="Enviar">
-                        </td>
-                    </tr>
-                </table>
+                {% for visivel in form.visible_fields %}
+                <p>
+                {{ visivel.label_tag }}
+                {{ visivel }}
+                {{ visivel.field_errors }}
+                </p>
+                {% endfor %}
+                {% include 'parciais/_messages.html' %}
+                <input id="envia_comentario" type="submit" class="btn btn-primary" value="Enviar"><br>
             </form>
-
-
+            <br>
         </div>
         <div class="col-xl"></div>
     </div>
