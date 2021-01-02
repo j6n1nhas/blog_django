@@ -1,0 +1,3 @@
+{% extends 'posts/index.html' %}
+{% load humanize %}
+{% block titulo %}Pesquisa | {{ request.GET.termo }}{% endblock %}
