@@ -29,7 +29,7 @@
     <div class="row pt-5">
         <div class="col-xl"></div>
         <div class="col-xl-8">
-            <h2 class="my-3">Comentários: {{ comentarios.count }}</h2>
+            <h2 class="my-3">Comentário{{ comentarios|pluralize }}: {{ comentarios.count }}</h2>
             {% for comentario in comentarios %}
             <h5 class="mb-2 mt-5"><strong>{{ comentario.nome_comentario }}</strong> disse:</h5>
             <small class="text-muted">{{ comentario.data_comentario }}</small>
@@ -52,6 +52,8 @@
                 {{ visivel.field_errors }}
                 </p>
                 {% endfor %}
+                <div class="g-recaptcha" data-sitekey="6LcGdB4aAAAAAIyZ5OqpkTvzJGBeSHU_4BPcwksm"></div>
+                <br>
                 {% include 'parciais/_messages.html' %}
                 <input id="envia_comentario" type="submit" class="btn btn-primary" value="Enviar"><br>
             </form>
